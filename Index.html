@@ -4,18 +4,43 @@
     <script type="text/javascript" src="angular.min.js">  </script>
       <script type="text/javascript" src="app.js">
     </script>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+</style>
     <meta charset="utf-8">
-    <title>Module 1</title>
+    <title>Check off Shopping List</title>
   </head>
   <body >
-<div ng-controller="ToBuyController">
-  <span ng-repeat="item in TobuyList" style="float:left">
-         {{item.name}}<br>
-         <button ng-click="rootFolders = user.login">Add {{ {item.name }}</button><br/>
 
-     </span>
-<div>
+    <div class="row">
+  <div class="column" style="background-color:#aaa;" ng-controller="ToBuyController as itemadder">
+    <h2>To Buy</h2>
+    <ul><li ng-repeat="x in itemadder.TobuyList">{{x.name}} {{x.quantity}} <button  ng-click="itemadder.AddItem(x)">Bought</button></li></ul>
+<div ng-if="!itemadder.TobuyList.length>0">Everything is bought!</div>
 </div>
+<div class="column" style="background-color:#bbb;" ng-controller="AlreadyBoughtController as showlist">
+    <h2>Already Bought</h2>
+    <ol>
+  <li ng-repeat="x in showlist.items">Bought {{x.quantity}} of {{x.name}} </li>
+    </ol>
+    <div ng-if="!showlist.items.length>0">Nothing bought yet!</div>
+  </div>
+
+
 </div>
-  </body>
+
+
 </html>
