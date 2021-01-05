@@ -34,7 +34,7 @@
 <div class="column" style="background-color:#bbb;" ng-controller="AlreadyBoughtController as showlist">
     <h2>Already Bought</h2>
     <ol>
-  <li ng-repeat="x in showlist.items">Bought {{x.quantity}} of {{x.name}} </li>
+  <li ng-repeat="x in showlist.items">Bought {{x.quantity}}  {{x.name}} </li>
     </ol>
     <div ng-if="!showlist.items.length>0">Nothing bought yet!</div>
   </div>
