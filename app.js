@@ -28,8 +28,8 @@ var listitem=[
 },
 
 ]
-
-function ToBuyController(ShoppingListCheckOffService,$scope){
+ToBuyController.$inject = ['ShoppingListCheckOffService'];
+function ToBuyController(ShoppingListCheckOffService){
 //$scope.TobuyList=[];
 //$scope.TobuyList=listitem;
 var itemadder=this;
@@ -40,7 +40,7 @@ ShoppingListCheckOffService.AddItem(item.name,item.quantity);
 itemadder.TobuyList=ShoppingListCheckOffService.removeItems(item);
 }
 }
-
+AlreadyBoughtController.$inject = ['ShoppingListCheckOffService'];
 function AlreadyBoughtController(ShoppingListCheckOffService,$scope){
 //$scope.TobuyList=TobuyList;
 var showlist=this;
